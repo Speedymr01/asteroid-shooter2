@@ -4,7 +4,7 @@ from random import randint, uniform
 class Ship(pygame.sprite.Sprite):
     def __init__(self, groups):
         super().__init__(groups)
-        self.image = pygame.image.load('./graphics/ship.png').convert_alpha()
+        self.image = pygame.image.load('graphics/ship.png').convert_alpha()
         self.can_shoot = True
         self.shoot_time = None
         self.rect = self.image.get_rect(center = (WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2))
@@ -40,7 +40,7 @@ class Ship(pygame.sprite.Sprite):
 class Laser(pygame.sprite.Sprite):
     def __init__(self, pos, groups):
         super().__init__(groups)
-        self.image = pygame.image.load('./graphics/laser.png').convert_alpha()
+        self.image = pygame.image.load('graphics/laser.png').convert_alpha()
         self.rect = self.image.get_rect(midbottom = pos)
         self.pos = pygame.math.Vector2(self.rect.topleft)
         self.direction = pygame.math.Vector2(0, -1)
@@ -61,7 +61,7 @@ class Laser(pygame.sprite.Sprite):
 class Meteor(pygame.sprite.Sprite):
     def __init__(self, pos, groups):
         super().__init__(groups)
-        meteor_surf = pygame.image.load('./graphics/meteor.png')
+        meteor_surf = pygame.image.load('graphics/meteor.png')
         meteor_size = pygame.math.Vector2(meteor_surf.get_size()) * uniform(0.5, 1.5)
         self.scaled_surf = pygame.transform.scale(meteor_surf, meteor_size)
         self.image = self.scaled_surf
@@ -89,7 +89,7 @@ class Meteor(pygame.sprite.Sprite):
 
 class Score:
     def __init__(self):
-        self.font = pygame.font.Font('./graphics/subatomic.ttf', 50)
+        self.font = pygame.font.Font('graphics/subatomic.ttf', 50)
     def display(self):
         score_text = f'Score: {round(score)}'
         text_surf = self.font.render(score_text, True, (255, 255, 255))
@@ -99,7 +99,7 @@ class Score:
 
 class Highscore:
     def __init__(self):
-        self.font = pygame.font.Font('./graphics/subatomic.ttf', 50)
+        self.font = pygame.font.Font('graphics/subatomic.ttf', 50)
     def display(self):
         Highscore_text = f'Highscore: {open_highscore('read')}'
         text_surf = self.font.render(Highscore_text, True, (255, 255, 255))
@@ -131,13 +131,13 @@ def init(version = '3.0'):
     lb_meteor_speed = score*1.5 + 200
     ub_meteor_speed = score*1.5 + 400
     sounds = {}
-    sounds[1] = pygame.mixer.Sound('./sounds/level1.wav')
-    sounds[2] = pygame.mixer.Sound('./sounds/level0.wav')
-    sounds[3] = pygame.mixer.Sound('./sounds/level-.wav')
-    sounds[4] = pygame.mixer.Sound('./sounds/8-bit-laser-151672.mp3')
-    sounds[5] = pygame.mixer.Sound('./sounds/explosion.wav')
-    sounds[6] = pygame.mixer.Sound('./sounds/422590-Mobile-Game-Melodic-Stinger-Floating-Level-Up-1.wav') 
-    sounds[7] = pygame.mixer.Sound('./sounds/game-over-39-199830.mp3')
+    sounds[1] = pygame.mixer.Sound('sounds/level1.wav')
+    sounds[2] = pygame.mixer.Sound('sounds/level0.wav')
+    sounds[3] = pygame.mixer.Sound('sounds/level-.wav')
+    sounds[4] = pygame.mixer.Sound('sounds/8-bit-laser-151672.mp3')
+    sounds[5] = pygame.mixer.Sound('sounds/explosion.wav')
+    sounds[6] = pygame.mixer.Sound('sounds/422590-Mobile-Game-Melodic-Stinger-Floating-Level-Up-1.wav') 
+    sounds[7] = pygame.mixer.Sound('sounds/game-over-39-199830.mp3')
     sounds[1].set_volume(0.2)
     sounds[2].set_volume(0.2)
     sounds[3].set_volume(0.2)
@@ -161,7 +161,7 @@ def play_sound(soundindex):
 
 
 # background
-background_surface = pygame.image.load('./graphics/background.png').convert()
+background_surface = pygame.image.load('graphics/background.png').convert()
 
 # Sprite groups
 spaceship_group = pygame.sprite.GroupSingle()
