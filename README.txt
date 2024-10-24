@@ -7,4 +7,4 @@
     -Click install then Yes
     -Finally click the 'Disable Path Length Limit' button, yes, then close
 2) Second, open up the setup file (.cmd). This installs the required modules if needed. Run this whether or not you think they are installed.
-3) Then you should be ready to go. Open up the run.cmd.
+3) Then you should be ready to go. Open up the main.py.
